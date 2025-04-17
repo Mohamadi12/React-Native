@@ -1,13 +1,15 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import Logo from "../assets/img/logo.jpeg";
+import { StyleSheet } from "react-native";
 import { Link } from "expo-router";
+import ThemedView from "../components/ThemedView";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
+import ThemedText from "../components/ThemedText";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       {/* <Image source={{uri: ''}}/> pour les liens */}
-      <Image
-        source={Logo}
+      <ThemedLogo
         style={{
           width: 100,
           height: 100,
@@ -15,17 +17,21 @@ const Home = () => {
           borderRadius: 100,
         }}
       />
-      <Text style={styles.title}>Bonjour</Text>
-      <Text style={{ marginTop: 10, marginBottom: 10 }}>
-        Application de List de lecture
-      </Text>
+      <Spacer height={20} />
+
+      <ThemedText style={styles.title}>Bonjour</ThemedText>
+
+      <Spacer height={10} />
+      <ThemedText> Application de List de lecture </ThemedText>
+      <Spacer />
+
       <Link href="/about" style={styles.link}>
-        About page
+        <ThemedText>About page</ThemedText>
       </Link>
       <Link href="/contact" style={styles.link}>
-        Contact page
+        <ThemedText>Contact page</ThemedText>
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 
