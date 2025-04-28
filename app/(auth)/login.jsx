@@ -6,13 +6,16 @@ import { Link } from "expo-router";
 import ThemedButton from "../../components/ThemedButton";
 import ThemedTextInput from "../../components/ThemedTextInput";
 import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const {user} = useUser
 
   const handleSubmit = () => {
+    console.log('current user:', user)
     console.log("Login button pressed", email, password);
   };
 
