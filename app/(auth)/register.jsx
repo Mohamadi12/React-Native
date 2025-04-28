@@ -11,13 +11,22 @@ import Spacer from "../../components/Spacer";
 import ThemedButton from "../../components/ThemedButton";
 import { useState } from "react";
 import ThemedTextInput from "../../components/ThemedTextInput";
+import { useUser } from "../../hooks/useUser";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    console.log("Register button pressed", email, password);
+  const { register} = useUser();
+
+
+  const handleSubmit = async() => {
+    try {
+      await register(email, password);
+    } catch (error) {
+      console.log(error.message);
+      Alert.alert('Registration Error', error.message);
+    }
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -28,7 +37,7 @@ const Register = () => {
           Register for An Account
         </ThemedText>
 
-        <ThemedButton onPress={() => handleSubmit}>
+        <ThemedButton onPress={handleSubmit}>
           <Text style={{ color: "#f2f2f2" }}>Register</Text>
         </ThemedButton>
 
