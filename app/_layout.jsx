@@ -1,4 +1,4 @@
-import { StyleSheet, useColorScheme } from "react-native";
+import { useColorScheme } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import { Colors } from "../constants/Color";
