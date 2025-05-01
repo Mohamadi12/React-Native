@@ -29,10 +29,13 @@ export function UserProvider({children}) {
 
 
 
-    // async function logout() {}
+    async function logout() {
+        await account.deleteSession("current")
+        setUser(null)
+    }
 
     return (
-        <UserContext.Provider value={{user, login, register}}>
+        <UserContext.Provider value={{user, login, register, logout}}>
             {children}
         </UserContext.Provider>
     )
