@@ -10,7 +10,7 @@ const DashboardLayout = () => {
 
   return (
     <UserOnly>
-      <Tabs
+      <Tabs // tabBar pour travailler sur les icons en bas
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
@@ -60,6 +60,10 @@ const DashboardLayout = () => {
               />
             ),
           }}
+        />
+        <Tabs.Screen
+          name="books/[id]"
+          options={{ href: null }} // pour ne pas afficher le bouton parmi les autres
         />
       </Tabs>
     </UserOnly>
